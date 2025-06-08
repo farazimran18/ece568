@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define PROGRAMNAME_LEN		10
+#define PROGRAMNAME_LEN 10
 
 // ECE568
 // Lab 1: target2.c
@@ -14,22 +14,16 @@
 
 unsigned long long stackLocation = 0x056801000;
 
+void printProgramName(const char *buffer) {
+  // Print the program name
 
-void
-printProgramName(const char * buffer)
-{
-	// Print the program name
+  char programName[PROGRAMNAME_LEN];
 
-	char	programName[PROGRAMNAME_LEN];
-
-	strncpy(programName, buffer, PROGRAMNAME_LEN);
-	printf("Running %s\n", programName);
+  strncpy(programName, buffer, PROGRAMNAME_LEN);
+  printf("Running %s\n", programName);
 }
 
-
-int
-main(const int argc, const char * argv[])
-{
-	printProgramName(argv[0]);
-	return(0);
+int main(const int argc, const char *argv[]) {
+  printProgramName(argv[0]);
+  return (0);
 }

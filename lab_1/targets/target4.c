@@ -14,26 +14,23 @@
 
 unsigned long long stackLocation = 0x056801000;
 
+int main(const int argc, const char *argv[]) {
+  // IMPORTANT NOTE: this function will be called "lab_main"
+  // (not "main") if you are analyzing this code in gdb
 
-int
-main(const int argc, const char * argv[])
-{
-	// IMPORTANT NOTE: this function will be called "lab_main"
-	// (not "main") if you are analyzing this code in gdb
+  printf("Running target4...\n");
 
-	printf("Running target4...\n");
+  char *p = tmalloc(72);
+  char *q = tmalloc(120);
 
-	char *	p = tmalloc(72);
-	char *	q = tmalloc(120);
+  tfree(p);
+  tfree(q);
 
-	tfree(p);
-	tfree(q);
+  p = tmalloc(192);
 
-	p = tmalloc(192);
+  strncpy(p, argv[0], 192);
 
-	strncpy(p, argv[0], 192);
+  tfree(q);
 
-	tfree(q);
-
-	return(0);
+  return (0);
 }
